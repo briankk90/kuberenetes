@@ -17,8 +17,16 @@ spec:
       containers:
       - name: web
         image: web-app:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 3000
         env:
         - name: NODE_ENV
           value: "production"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
